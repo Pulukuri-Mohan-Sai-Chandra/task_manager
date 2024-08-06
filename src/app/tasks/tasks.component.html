@@ -12,5 +12,5 @@
       <button *ngIf="selected_user != undefined">Add Task</button>
     </menu>
   </header>
-  <task_comp [curr_tasks]="user_tasks"/>
+  <task_comp *ngFor="let task of user_tasks" [task]="task"/>
 </section>
