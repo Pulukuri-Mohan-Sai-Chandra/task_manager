@@ -2,16 +2,17 @@
 <main>
     <ul id="users">
         <li>
-            <user_comp [user]="all_users[0]"/>
+            <user_comp (currUser)="handleUserEvent($event)" [user]="all_users[0]"/>
         </li>
         <li>
-            <user_comp [user]="all_users[1]"/>
+            <user_comp (currUser)="handleUserEvent($event)" [user]="all_users[1]"/>
         </li>
         <li>
-            <user_comp [user]="all_users[2]"/>
+            <user_comp (currUser)="handleUserEvent($event)" [user]="all_users[2]"/>
         </li>
         <li>
-            <user_comp [user]="all_users[3]"/>
+            <user_comp (currUser)="handleUserEvent($event)" [user]="all_users[3]"/>
         </li>
     </ul>
+    <task_comp [select_user]="user_name"/>
 </main>
