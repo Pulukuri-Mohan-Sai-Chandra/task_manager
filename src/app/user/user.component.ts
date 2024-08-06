@@ -1,6 +1,6 @@
 import { Component, Input,EventEmitter,Output} from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
-
+import {User} from '../../Types_Interfaces/types_interfaces'
 const random_index = Math.floor(Math.random() * DUMMY_USERS.length);
 
 @Component({
@@ -12,15 +12,15 @@ const random_index = Math.floor(Math.random() * DUMMY_USERS.length);
 })
 export class UserComponent {
   @Input({ required: true })
-  user!: { id: string; name: string; avatar: string };
+  user?: User;
 
 
-  @Output() currUser = new EventEmitter<{ id: string; name: string; avatar: string }>()
+  @Output() currUser = new EventEmitter<User>()
   onClickUser() {
     this.currUser.emit(this.user)
 
   }
   get imgPath() {
-    return 'assets/users/' + this.user.avatar;
+    return 'assets/users/' + this.user?.avatar;
   }
 }

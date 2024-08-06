@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
-
+import {NgIf,NgFor} from '@angular/common'
+import {User,Task} from '../../Types_Interfaces/types_interfaces'
 @Component({
   selector: 'task_comp',
   standalone: true,
-  imports: [],
+  imports: [NgIf,NgFor],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
-  @Input({required:true}) select_user!:{id:string,name:string,avatar:string}
+  @Input({required:true}) curr_tasks?:Task[]
 }

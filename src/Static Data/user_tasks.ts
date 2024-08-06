@@ -1,27 +1,27 @@
+import { Task } from "../Types_Interfaces/types_interfaces";
 
-export const userTasks:{[key:string]:{id:number,title:string}[]} = {
-  "u1":[
-    { "id": 1, "title": "Red Rubber Duck" },
-    { "id": 2, "title": "Vintage Pocket Watch" },
-    { "id": 3, "title": "Crystallized Geode" },
-    { "id": 4, "title": "Bamboo Flute" }
-  ],
-  'u2':[
-    { "id": 5, "title": "Antique Brass Telescope" },
-    { "id": 6, "title": "Handmade Ceramic Bowl" },
-    { "id": 7, "title": "Electric Guitar Pick" },
-    { "id": 8, "title": "Velvet Throw Pillow" }
-  ],
-  'u3':[
-    { "id": 9, "title": "Leather Journal" },
-    { "id": 10, "title": "Solar Powered Lantern" },
-    { "id": 11, "title": "Vintage Typewriter" },
-    { "id": 12, "title": "Handmade Wooden Chess Set" }
-  ],
-  'u4':[
-    { "id": 13, "title": "Stargazing Telescope" },
-    { "id": 14, "title": "Handmade Crochet Blanket" },
-    { "id": 15, "title": "Vintage Vinyl Record Player" },
-    { "id": 16, "title": "Bonsai Tree in Ceramic Pot" }
-  ]
-}
+export const userTasks: Task[] = [
+  {
+    id: 't1',
+    userId: 'u1',
+    title: 'Master Angular',
+    summary:
+      'Learn all the basic and advanced features of Angular & how to apply them.',
+    dueDate: '2025-12-31',
+  },
+  {
+    id: 't2',
+    userId: 'u3',
+    title: 'Build first prototype',
+    summary: 'Build a first prototype of the online shop website',
+    dueDate: '2024-05-31',
+  },
+  {
+    id: 't3',
+    userId: 'u3',
+    title: 'Prepare issue template',
+    summary:
+      'Prepare and describe an issue template which will help with project management',
+    dueDate: '2024-06-15',
+  },
+]

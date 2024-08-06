@@ -1,3 +1,10 @@
-<h1>
-  {{select_user.name}}
-</h1>
+<article *ngFor="let task of curr_tasks" >
+  <h2>
+    {{task.title}}
+  </h2>
+  <time>{{task.dueDate}}</time>
+  <p>{{task.summary}}</p>
+  <p class="actions">
+    <button>Complete</button>
+  </p>
+</article>

@@ -1,0 +1,16 @@
+<section id="tasks">
+  <header>
+    <h2 *ngIf="selected_user != undefined;else no_user">
+      {{selected_user.name}}'s Tasks
+    </h2>
+    <ng-template #no_user>
+      <h2>
+        Select the user for the Tasks
+      </h2>
+    </ng-template>
+    <menu>
+      <button *ngIf="selected_user != undefined">Add Task</button>
+    </menu>
+  </header>
+  <task_comp [curr_tasks]="user_tasks"/>
+</section>

@@ -1,18 +1,12 @@
 <comp_header/>
 <main>
     <ul id="users">
-        <li>
-            <user_comp (currUser)="handleUserEvent($event)" [user]="all_users[0]"/>
-        </li>
-        <li>
-            <user_comp (currUser)="handleUserEvent($event)" [user]="all_users[1]"/>
-        </li>
-        <li>
-            <user_comp (currUser)="handleUserEvent($event)" [user]="all_users[2]"/>
-        </li>
-        <li>
-            <user_comp (currUser)="handleUserEvent($event)" [user]="all_users[3]"/>
-        </li>
+      <li *ngFor="let c_user of all_users">
+        <user_comp (currUser)="handleUserEvent($event)" [user]="c_user"/>
+      </li>
     </ul>
-    <task_comp [select_user]="user_name"/>
+    <tasks_comp *ngIf="selected_user != undefined;else no_user" [selected_user]="selected_user" [user_tasks]="user_tasks"/>
+    <ng-template #no_user>
+      <h2>Select User for Tasks</h2>
+    </ng-template>
 </main>
