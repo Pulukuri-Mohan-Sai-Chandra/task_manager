@@ -1,6 +1,7 @@
-import { Component,Output,EventEmitter, Input } from '@angular/core';
+import { Component,Output,EventEmitter, Input, inject } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { Task, User } from '../../Types_Interfaces/types_interfaces';
+import {TaskService} from '../../Services/Tasks.service'
 @Component({
   selector: 'new-task-comp',
   standalone: true,
@@ -21,6 +22,8 @@ export class NewTaskComponent {
     dueDate:""
   }
 
+  private taskService = inject(TaskService);
+
   onCancleClick(){
 
     this.cancleClick.emit(false);
@@ -33,7 +36,7 @@ export class NewTaskComponent {
       this.new_task_data.userId = this.selected_user.id
     }
     this.new_task_data.id = new Date().getMilliseconds().toString();
-    this.createEvent.emit(this.new_task_data);
+    this.taskService.addTask(this.new_task_data);
     this.onCancleClick();
   }
 }

@@ -5,6 +5,7 @@ import {userTasks} from '../../Static Data/user_tasks';
 import {TaskComponent} from '../task/task.component';
 import {NewTaskComponent} from '../new-task/new-task.component'
 import { CardComponent } from "../../shared/card/card.component";
+import {TaskService} from '../../Services/Tasks.service'
 @Component({
   selector: 'tasks_comp',
   standalone: true,
@@ -15,31 +16,13 @@ import { CardComponent } from "../../shared/card/card.component";
 export class TasksComponent {
   @Input({required:true}) selected_user!:User;
   open_model = false;
-  tasks = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary:
-        'Learn all the basic and advanced features of Angular & how to apply them.',
-      dueDate: '2025-12-31',
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: 'Build first prototype',
-      summary: 'Build a first prototype of the online shop website',
-      dueDate: '2024-05-31',
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'Prepare issue template',
-      summary:
-        'Prepare and describe an issue template which will help with project management',
-      dueDate: '2024-06-15',
-    },
-  ]
+  tasks?:Task[];
+
+  constructor(private taskService:TaskService){
+    this.taskService = taskService;
+    this.tasks = taskService.getAllTasks();
+  }
+
 
   AddTask(){
     this.open_model = true;
@@ -48,12 +31,11 @@ export class TasksComponent {
   closeModel(){
     this.open_model = false;
   }
-
-  taskCreated(newTask:Task){
-    this.tasks.push(newTask)
+  taskCompleted(c_task:Task){
+    this.taskService.taskCompleted(c_task);
+    this.tasks = this.taskService.getAllTasks();
   }
-
-  taskCompleted(newTask:Task){
-    this.tasks = this.tasks.filter((task:Task)=> newTask.id != task.id)
+  taskCreated(c_task:Task){
+    this.taskService.addTask(c_task);
   }
 }
