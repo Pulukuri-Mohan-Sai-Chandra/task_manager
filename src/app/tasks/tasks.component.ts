@@ -23,7 +23,9 @@ export class TasksComponent {
     this.tasks = taskService.getAllTasks();
   }
 
-
+  get allTasks(){
+    return this.taskService.getAllTasks();
+  }
   AddTask(){
     this.open_model = true;
   }
@@ -33,9 +35,6 @@ export class TasksComponent {
   }
   taskCompleted(c_task:Task){
     this.taskService.taskCompleted(c_task);
-    this.tasks = this.taskService.getAllTasks();
   }
-  taskCreated(c_task:Task){
-    this.taskService.addTask(c_task);
-  }
+
 }
