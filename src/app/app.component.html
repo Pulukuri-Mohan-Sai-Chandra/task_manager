@@ -2,10 +2,10 @@
 <main>
     <ul id="users">
       <li *ngFor="let c_user of all_users">
-        <user_comp (currUser)="handleUserEvent($event)" [user]="c_user"/>
+        <user_comp (currUser)="handleUserEvent($event)" [user]="c_user" [selected_user]="selected_user"/>
       </li>
     </ul>
-    <tasks_comp *ngIf="selected_user != undefined;else no_user" [selected_user]="selected_user" [user_tasks]="user_tasks"/>
+    <tasks_comp *ngIf="selected_user != undefined;else no_user" [selected_user]="selected_user"/>
     <ng-template #no_user>
       <h2>Select User for Tasks</h2>
     </ng-template>

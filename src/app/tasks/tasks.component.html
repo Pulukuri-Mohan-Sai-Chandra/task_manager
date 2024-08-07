@@ -1,16 +1,23 @@
-<section id="tasks">
-  <header>
-    <h2 *ngIf="selected_user != undefined;else no_user">
-      {{selected_user.name}}'s Tasks
-    </h2>
-    <ng-template #no_user>
-      <h2>
-        Select the user for the Tasks
+<new-task-comp *ngIf="open_model" (cancleClick)="closeModel()" (backDropClick)="closeModel()" (createEvent)="taskCreated($event)" [selected_user]="selected_user"/>
+<card-comp>
+  <section id="tasks">
+    <header>
+      <h2 *ngIf="selected_user != undefined;else no_user">
+        {{selected_user.name}}'s Tasks
       </h2>
-    </ng-template>
-    <menu>
-      <button *ngIf="selected_user != undefined">Add Task</button>
-    </menu>
-  </header>
-  <task_comp *ngFor="let task of user_tasks" [task]="task"/>
-</section>
+      <ng-template #no_user>
+        <h2>
+          Select the user for the Tasks
+        </h2>
+      </ng-template>
+      <menu>
+        <button *ngIf="selected_user != undefined" (click)="AddTask()">Add Task</button>
+      </menu>
+    </header>
+    @for(task of tasks;track task.id){
+        @if(task.userId == selected_user.id){
+          <task_comp [task] = task (completed_task)="taskCompleted($event)"/>
+        }
+      }
+  </section>
+</card-comp>
