@@ -4,8 +4,6 @@ import { Task, User } from '../../Types_Interfaces/types_interfaces';
 import {TaskService} from '../../Services/Tasks.service'
 @Component({
   selector: 'new-task-comp',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css'
 })
@@ -35,7 +33,7 @@ export class NewTaskComponent {
     if(this.selected_user){
       this.new_task_data.userId = this.selected_user.id
     }
-    this.new_task_data.id = new Date().getMilliseconds().toString();
+    this.new_task_data.id = new Date().toISOString();
     this.taskService.addTask(this.new_task_data);
     this.onCancleClick();
   }

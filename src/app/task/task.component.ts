@@ -6,8 +6,6 @@ import {DatePipe} from '@angular/common'
 import { TaskService } from '../../Services/Tasks.service';
 @Component({
   selector: 'task_comp',
-  standalone: true,
-  imports: [NgIf, NgFor, CardComponent,DatePipe],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })

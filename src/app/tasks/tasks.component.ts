@@ -8,8 +8,6 @@ import { CardComponent } from "../../shared/card/card.component";
 import {TaskService} from '../../Services/Tasks.service'
 @Component({
   selector: 'tasks_comp',
-  standalone: true,
-  imports: [NgIf, NgFor, TaskComponent, NewTaskComponent, CardComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })

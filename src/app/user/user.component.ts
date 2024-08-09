@@ -6,8 +6,6 @@ const random_index = Math.floor(Math.random() * DUMMY_USERS.length);
 
 @Component({
   selector: 'user_comp',
-  standalone: true,
-  imports: [CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })

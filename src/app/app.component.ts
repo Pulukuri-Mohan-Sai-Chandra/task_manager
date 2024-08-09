@@ -10,8 +10,7 @@ import {User,Task} from '../Types_Interfaces/types_interfaces'
 import {NgFor,NgIf} from '@angular/common'
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, HeaderComponent, UserComponent,TaskComponent,NgIf,NgFor,TasksComponent],
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
