@@ -18,6 +18,6 @@ import { TaskModule } from './task.module';
     UserComponent,
   ],
   bootstrap: [AppComponent],
-  imports: [BrowserModule, FormsModule,CardModule,TaskModule],
+  imports: [BrowserModule,CardModule,TaskModule],
 })
 export class AppModule {}
